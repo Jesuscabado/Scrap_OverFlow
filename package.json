@@ -14,6 +14,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "jsdom": "^21.1.1",
+    "mongoose": "^7.0.4",
     "puppeteer": "^19.9.1"
   },
   "devDependencies": {

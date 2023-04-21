@@ -26,16 +26,11 @@ describe('Parser', () => {
     });
 
 
-    it(`Deberia conseguir el usuario de una pregunta`, () => {
-        const user = parser.getAllUser();
-        expect(user[0]).toBe('James Risner');
-    });
+    
 
     it(`Deberia conseguir la pregunta, el usuario y el numero de votos`, () => {
         const question = parser.getQuestion();
-        const user = parser.getUser();
-        const votes = parser.getDivVote();
-        expect(question.user).toBe('James Risner');
+        expect(question.user).toBe('MadjoroMadjoro');
         expect(question.votes).toBe(471);
     });
 

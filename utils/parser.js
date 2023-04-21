@@ -53,7 +53,7 @@ class Parser {
   getQuestion() {
     const question = this.getQuestionAsDom();
     const votes = this.getDivVote(question);
-    const user = this.getUser(question);
+    const user = this.getUserName(question);
     return {
       votes,
       user,
@@ -75,9 +75,13 @@ class Parser {
    * @method
    * @returns 
    */
-  getUser(element) {
-    const user = element.querySelector("div.user-details a").textContent;
-    return user;
+  getUserName(element) {
+    const users = Array.from(element.querySelectorAll("div.user-details"));
+    if (users.length == 0) 
+      return "" ;
+    if (users.length == 1)
+      return users[0].textContent.trim();
+    return users[users.length - 1].textContent.trim();
   }
   /**
    * Obtiene el numero de votos de una pregunta
@@ -121,16 +125,17 @@ class Parser {
    */
   getAnswers() {
     const answers = this.getAnswerAsDom();
-    return answers.map((answers)=> {
+    return answers.map((answer) => {
+      const votes = this.getDivVote(answer);
+      const user = this.getUserName(answer);
+      return {
+        votes,
+        user,
+        answer: answer.outerHTML
+      };
+    });
 
-    })
-    const votes = this.getDivVote(answers);
-    const user = this.getUser(answers);
-    return {
-      votes,
-      user,
-      answer: answers.outerHTML
-    };
+    
 
   }
 
