@@ -1,9 +1,10 @@
 import express from "express";
 import stackOverflowController from "./controllers/stackOverflowController.js";
+import router from "./routes/router.js";
 
 const app = express();
 
-app.get("/", async (req, res) => {
+/* app.get("/", async (req, res) => {
     const  query  = req.query.q;
     const { title, question, answers } = await stackOverflowController.getContent(query);
     res.send(`
@@ -22,8 +23,13 @@ app.get("/", async (req, res) => {
  
 
     `);
-});
+}); */
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
-});
+app.set("view engine", "pug");
+
+app.use("/", router);
+app.listen(3001, () => {
+    console.log("Server running on port 3001");
+}); 
