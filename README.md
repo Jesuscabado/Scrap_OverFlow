@@ -5,7 +5,7 @@ Este es un proyecto de webscraping en el que se busca obtener información de la
 
 La configuración del proyecto se encuentra en el archivo package.json, donde se definen las dependencias que se utilizarán. En este caso se utilizan las siguientes dependencias:
 
-! [Frameworks y librerias utilizadas](../Scrap_OverFlow/capturas/Dependencies.png) .
+! [Frameworks y librerias utilizadas](../Scrap_OverFlow/imagenes/Dependencies.png) .
 
        express es un framework de Node.js utilizado para la creación de aplicaciones web y API's.
     jsdom es una biblioteca que permite manipular el DOM (Document Object Model) en Node.js.
@@ -27,6 +27,9 @@ En el archivo index.js se importan los módulos necesarios para crear el servido
     El módulo mongoose se utiliza para interactuar con la base de datos MongoDB.
 
 En el archivo stackOverflowController.js se encuentran las clases Scraper y Parser, que se utilizan para realizar el web scraping en la plataforma Stack Overflow y obtener la información necesaria.
+Ademas, se encuentra la función getMultipleContents, que se encarga de realizar el web scraping en la plataforma Stack Overflow añadiendo la query que se le pasa en el buscador.
+! [Buscador](../Scrap_OverFlow/imagenes/buscador.png) .
+! [Resultados](../Scrap_OverFlow/imagenes/resultados.png) .
 
 La clase Scraper se encarga de inicializar el navegador y la página web, obtener el contenido de la página web y cerrar el navegador.
 
