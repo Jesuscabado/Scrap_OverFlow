@@ -33,6 +33,7 @@ class Parser {
   /** 
    * Obtiene el titulo de la pagina
    * @method
+   * @private
    * @returns {string} titulo de la pagina
    */
   getTitle() {
@@ -41,6 +42,7 @@ class Parser {
   /**
     * Obtiene todos los links de la pagina
     * @method
+    * @private
     * @returns {array} - array con todos los links de la pagina
     */
   getLinks() {
@@ -52,6 +54,7 @@ class Parser {
   /**
    * Obtiene el contenido de la pregunta, el usuario y el numero de votos
    * @method
+   * @private
    * @returns {object} - objeto con el contenido de la pregunta, el usuario y el numero de votos 
    */
   getQuestion() {
@@ -68,6 +71,7 @@ class Parser {
   /**
    * Obtiene la pregunta en formato DOM
    * @method
+   * @private
    * @returns {object} - objeto con el contenido de la pregunta
    */
   getQuestionAsDom() {
@@ -77,6 +81,7 @@ class Parser {
   /**
    * Obtiene el usuario
    * @method
+   * @private
    * @returns {string} - usuario
    */
   getUserName(element) {
@@ -90,6 +95,7 @@ class Parser {
   /**
    * Obtiene el numero de votos de una pregunta
    * @method
+   * @private
    * @returns {number} - numero de votos
    */
   getDivVote(element) {
@@ -99,6 +105,7 @@ class Parser {
   /**
    * Obtiene todos los usuarios de la pagina
    * @method
+   * @private
    * @returns {array} - array con todos los usuarios de la pagina
    */
   getAllUser () {
@@ -108,6 +115,7 @@ class Parser {
   /**
    * Obtiene todos los votos de la pagina
    * @method
+   * @private
    * @returns {array} - array con todos los votos de la pagina
    */
   getAllVotes () {
@@ -117,6 +125,7 @@ class Parser {
   /**
    * Obtiene todas las respuestas de la pagina
    * @method
+   * @private
    * @returns {array} - array con todas las respuestas de la pagina
    */
   getAnswerAsDom() {
@@ -125,6 +134,7 @@ class Parser {
   /**
    * Obtiene el contenido de las respuestas, el usuario y el numero de votos
    * @method
+   * @private
    * @returns {object} - objeto con el contenido de las respuestas, el usuario y el numero de votos
    */
   getAnswers() {
