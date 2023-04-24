@@ -5,9 +5,8 @@ import Question from "../models/question.js";
 import Answer from "../models/answer.js";
 
 async function getContent(query){
-    const googleLinks = await googleSearchController.searchLinks(`stackoverflow+ ${query}`);
+    const googleLinks = await googleSearchController.searchLinks(`stackoverflow ${query}`);
     const url = googleLinks.find((link)=> link.includes("stackoverflow.com/questions"))
-    console.log(url);
     const scraper = new Scraper();
     await scraper.init();
     const html = await scraper.getPageContent(url);
