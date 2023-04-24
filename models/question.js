@@ -1,5 +1,13 @@
 import moongoose from '../utils/mongoose.js';
 
+/**
+ * @swagger
+ * components:
+ * schemas:
+ * Question:
+ * type: object
+ * properties:
+ */
 const questionSchema = new moongoose.Schema({
     query : {
         type: String,

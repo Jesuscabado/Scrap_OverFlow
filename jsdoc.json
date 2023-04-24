@@ -1,0 +1,11 @@
+{
+    "source": {
+        "include": ["./"],
+        "exclude": ["node_modules", ".out","coverage"]
+    },
+    "templates": {
+        "default": {
+            "outputSourceFiles": true
+        }
+    }
+}

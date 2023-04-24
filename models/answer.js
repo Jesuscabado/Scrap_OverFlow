@@ -1,5 +1,13 @@
 import mongoose from "../utils/mongoose.js";
 
+/**
+ * @swagger
+ * components:
+ * schemas:
+ * Answer:
+ * type: object
+ * properties:
+ */
 const answerSchema = new mongoose.Schema({
     content: {
         type: String,

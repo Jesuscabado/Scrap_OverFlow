@@ -1,5 +1,10 @@
 import stackOverflowController from "../../controllers/stackOverflowController.js";
-
+/**
+ * @swagger
+ * /api/stackOverflow:
+ * get:
+ * description: Get stackOverflow content
+ */
 describe("stackOverflowController", () => {
     it("Deberia conseguir el contenido de una pagina de stackoverflow", async () => {
         const query = "How do I install an R package from source?";

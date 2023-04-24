@@ -4,6 +4,15 @@ import googleSearchController from "./googleSearchController.js";
 import Question from "../models/question.js";
 import Answer from "../models/answer.js";
 
+/**
+ * @swagger
+ * /api/stackOverflow:
+ * get:
+ * description: Get stackOverflow content
+ * parameters:
+ * - name: query
+ * description: query to search
+ */
 async function getContent(query,url){
     const scraper = new Scraper();
     await scraper.init();
@@ -39,11 +48,24 @@ async function getContent(query,url){
         
     }
 }
+
+/**
+ *              
+ * @param {*} query 
+ * @returns {Array} links
+ * @description Get stackoverflow links from google search
+ */
 async function getStackOverFlowLinks(query){
     const googleLinks = await googleSearchController.searchLinks(`stackoverflow ${query}`);
    return googleLinks.filter((link)=> link.includes("stackoverflow.com/questions"))
 }
 
+/**
+ * 
+ * @param {*} query 
+ * @returns {Array} contents
+ * @description Get stackoverflow content from google search
+ */
 async function getMultipleContents(query){
     const links = await getStackOverFlowLinks(query);
     const contents = await Promise.all(links.map((link) => getContent(query, link)));

@@ -1,3 +1,12 @@
+/**
+ * @fileoverview Entry point of the application.
+ * @module index
+ * @requires express
+ * @requires stackOverflowController
+ * @requires path
+ * @requires dotenv
+ * @requires mongoose
+ */
 import express from "express";
 import stackOverflowController from "./controllers/stackOverflowController.js";
 import path from "path";

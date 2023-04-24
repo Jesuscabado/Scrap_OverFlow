@@ -1,6 +1,12 @@
 import Scraper from "../utils/scraper.js";
 import Parser from "../utils/parser.js";
 
+/**
+ * 
+ * @param {*} query 
+ * @returns {Array} links
+ * @description Get stackoverflow links from google search
+ */
 async function searchLinks(query) {
     //scraper
     const scraper = new Scraper();

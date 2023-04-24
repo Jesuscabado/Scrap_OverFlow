@@ -1,6 +1,10 @@
 import Parser from '../../utils/parser.js';
 import fs from 'fs';
-
+/**
+ * @description Test para el parser
+ * @type {Parser}
+ * @returns {Parser}
+ */
 describe('Parser', () => {
     let parser;
     
