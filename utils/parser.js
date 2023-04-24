@@ -38,7 +38,11 @@ class Parser {
   getTitle() {
     return this.document.querySelector("h1").textContent.trim();
   }
-
+  /**
+    * Obtiene todos los links de la pagina
+    * @method
+    * @returns {array} - array con todos los links de la pagina
+    */
   getLinks() {
     const links = Array.from(this.document.querySelectorAll("a"));
     return links.map((link) => link.href);
@@ -76,7 +80,7 @@ class Parser {
    * @returns 
    */
   getUserName(element) {
-    const users = Array.from(element.querySelectorAll("div.user-details"));
+    const users = Array.from(element.querySelectorAll("div.user-details a"));
     if (users.length == 0) 
       return "" ;
     if (users.length == 1)

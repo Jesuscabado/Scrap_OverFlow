@@ -13,6 +13,11 @@ describe('Parser', () => {
         const title = parser.getTitle();
         expect(title).toContain('How do I install an R package from source?');
     });
+
+    it(`Deberia conseguir los links de la pagina`, () => {
+        const links = parser.getLinks();
+        expect(links).toContain('https://stackoverflow.com/');
+    });
     
     it(`deberia conseguir una pregunta en formato DOM`, () => {
         const question = parser.getQuestionAsDom();
@@ -30,7 +35,7 @@ describe('Parser', () => {
 
     it(`Deberia conseguir la pregunta, el usuario y el numero de votos`, () => {
         const question = parser.getQuestion();
-        expect(question.user).toBe('MadjoroMadjoro');
+        expect(question.user).toBe('James Risner');
         expect(question.votes).toBe(471);
     });
 
@@ -44,9 +49,10 @@ describe('Parser', () => {
        expect(answers[0].innerHTML).toContain('If you have the file locally');
     });
 
-    /* it(`Deberia conseguir los parrafos de la respuesta`, () => {
-        const paragraphs = parser.getAnswerParagraph();
-        expect(paragraphs).toContain('If you have the file locally, then use install.packages() and set the repos=NULL:');
-    }); */
+    it(`Deberia conseguir el contenido de la respuesta`, () => {
+        const answers = parser.getAnswers();
+        expect(answers[0].answer).toContain('If you have the file locally');
+    }
+    );
 
 });
