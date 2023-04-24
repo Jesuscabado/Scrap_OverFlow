@@ -9,19 +9,21 @@ app.get("/", async (req, res) => {
         res.sendFile(_dirname + "/index.html");
     }
     catch (error) {
-        res.send("Ha habido un herror");
+        res.redirect("https://img.freepik.com/vector-gratis/pagina-error-404-distorsion_23-2148105404.jpg?w=2000");
+
     }
 });
 
 app.get("/search", async (req, res) => {
-    try {
+   
         const  query  = req.query.query;
-        const { title, question, answers } = await stackOverflowController.getContent(query);
+        const response = await stackOverflowController.getMultipleContents(query);
+        console.log(response)
+        const { title, question, answers } = response[0];
         res.send(`
         <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=83d4b324173a">
         <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary.css?v=c130dd38fbf5">
             <h1>${title}</h1>
-            <div>${question}</div>
             <div>${question.user}</div>
             <div>${question.votes}</div>
             <div>${question.question}</div>
@@ -30,13 +32,10 @@ app.get("/search", async (req, res) => {
                 <div>${answer.votes}</div>
                 <div>${answer.answer}</div>
             `).join("")}</div>
-     
+       
     
         `);
-    }
-    catch (error) {
-        res.send("Ha habido un herror");
-    }
+    
 });
 
 /* app.get("/", async (req, res) => {

@@ -4,9 +4,7 @@ import googleSearchController from "./googleSearchController.js";
 import Question from "../models/question.js";
 import Answer from "../models/answer.js";
 
-async function getContent(query){
-    const googleLinks = await googleSearchController.searchLinks(`stackoverflow ${query}`);
-    const url = googleLinks.find((link)=> link.includes("stackoverflow.com/questions"))
+async function getContent(query,url){
     const scraper = new Scraper();
     await scraper.init();
     const html = await scraper.getPageContent(url);
@@ -32,8 +30,6 @@ async function getContent(query){
         });
         await answerModel.save();
     });
-
-
     await scraper.close();
 
     return {
@@ -43,7 +39,17 @@ async function getContent(query){
         
     }
 }
+async function getStackOverFlowLinks(query){
+    const googleLinks = await googleSearchController.searchLinks(`stackoverflow ${query}`);
+   return googleLinks.filter((link)=> link.includes("stackoverflow.com/questions"))
+}
 
+async function getMultipleContents(query){
+    const links = await getStackOverFlowLinks(query);
+    const contents = await Promise.all(links.map((link) => getContent(query, link)));
+    return contents;
+}
 export default {
-    getContent
+    getContent,
+    getMultipleContents
 };
