@@ -23,8 +23,7 @@ En el archivo index.js se importan los módulos necesarios para crear el servido
     El módulo express se utiliza para crear el servidor y las rutas necesarias.
     El módulo stackOverflowController es el controlador que realiza el web scraping en la plataforma Stack Overflow.
     El módulo path se utiliza para trabajar con rutas de archivos y directorios.
-    El módulo dotenv se utiliza para cargar variables de entorno desde un archivo .env.
-    El módulo mongoose se utiliza para interactuar con la base de datos MongoDB.
+    El módulo mongoose se utiliza para interactuar con la base de datos MongoDB. En este caso guardamos las preguntas y respuestas obtenidas del web scraping.
 
 En el archivo stackOverflowController.js se encuentran las clases Scraper y Parser, que se utilizan para realizar el web scraping en la plataforma Stack Overflow y obtener la información necesaria.
 Ademas, se encuentra la función getMultipleContents, que se encarga de realizar el web scraping en la plataforma Stack Overflow añadiendo la query que se le pasa en el buscador.
@@ -34,3 +33,5 @@ Ademas, se encuentra la función getMultipleContents, que se encarga de realizar
 La clase Scraper se encarga de inicializar el navegador y la página web, obtener el contenido de la página web y cerrar el navegador.
 
 La clase Parser se encarga de parsear el HTML obtenido de la página web y obtener la información necesaria, como el título, las preguntas y las respuestas.
+
+Ademas las funciones principales han sido documentadas con JSDoc, para generar la documentación del proyecto y testeada con Jest, para comprobar su correcto funcionamiento.                                                                 

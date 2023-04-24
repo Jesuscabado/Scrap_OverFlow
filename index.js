@@ -4,7 +4,6 @@
  * @requires express
  * @requires stackOverflowController
  * @requires path
- * @requires dotenv
  * @requires mongoose
  */
 import express from "express";
