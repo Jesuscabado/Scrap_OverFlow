@@ -12,14 +12,14 @@ import path from "path";
 const app = express();
 
 app.get("/", async (req, res) => {
-    try {
+/*     try { */
         const _dirname = path.resolve();
         res.sendFile(_dirname + "/index.html");
-    }
+   /*  }
     catch (error) {
         res.redirect("https://img.freepik.com/vector-gratis/pagina-error-404-distorsion_23-2148105404.jpg?w=2000");
 
-    }
+    } */
 });
 
 app.get("/search", async (req, res) => {
